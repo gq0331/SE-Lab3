@@ -7,7 +7,7 @@ For more information on this file, see
 https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 """
 
-import os
+#import os
 import sys
 
 root = os.path.dirname(__file__)
