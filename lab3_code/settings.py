@@ -15,55 +15,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-<<<<<<< .mine
-import os.path 
-import sae.const
-from os import environ
-debug = not environ.get("wodecangshu", "") 
-if debug:
-#LOCAL ±¾µØµ÷ÊÔÓÃ£¬±ãÓÚµ¼³öÊý¾Ý¿â,¸ù¾Ý±¾µØMYSQLÊý¾Ý¿âÌîÐ´ÏÂÃæ²ÎÊý<----------------Èç¹ûÎÄ¼þÖÐ³öÏÖÖÐÎÄ£¬Ò»¶¨ÒªÔÚ¿ªÊ¼Ìí¼Ó #coding:utf-8
-    #coding:utf-8 
-    MYSQL_DB = 'library'    
-    MYSQL_USER = 'root' 
-    MYSQL_PASS = '123456' 
-    MYSQL_HOST_M = '127.0.0.1' 
-    MYSQL_HOST_S = '127.0.0.1' 
-    MYSQL_PORT = '3306' 
-else: 
-#SAE 
-    import sae.const 
-    MYSQL_DB = sae.const.MYSQL_DB 
-    MYSQL_USER = sae.const.MYSQL_USER 
-    MYSQL_PASS = sae.const.MYSQL_PASS 
-    MYSQL_HOST_M = sae.const.MYSQL_HOST 
-    MYSQL_HOST_S = sae.const.MYSQL_HOST_S 
-    MYSQL_PORT = sae.const.MYSQL_PORT
-||||||| .r2
-=======
-import os.path 
-import sae.const
-from os import environ
-debug = not environ.get("wodecangshu", "") 
-if debug:
-#LOCAL æœ¬åœ°è°ƒè¯•ç”¨ï¼Œä¾¿äºŽå¯¼å‡ºæ•°æ®åº“,æ ¹æ®æœ¬åœ°MYSQLæ•°æ®åº“å¡«å†™ä¸‹é¢å‚æ•°<----------------å¦‚æžœæ–‡ä»¶ä¸­å‡ºçŽ°ä¸­æ–‡ï¼Œä¸€å®šè¦åœ¨å¼€å§‹æ·»åŠ  #coding:utf-8
-    #coding:utf-8 
-    MYSQL_DB = 'library'    
-    MYSQL_USER = 'root' 
-    MYSQL_PASS = '19940331' 
-    MYSQL_HOST_M = '127.0.0.1' 
-    MYSQL_HOST_S = '127.0.0.1' 
-    MYSQL_PORT = '3306' 
-else: 
-#SAE 
-    import sae.const 
-    MYSQL_DB = sae.const.MYSQL_DB 
-    MYSQL_USER = sae.const.MYSQL_USER 
-    MYSQL_PASS = sae.const.MYSQL_PASS 
-    MYSQL_HOST_M = sae.const.MYSQL_HOST 
-    MYSQL_HOST_S = sae.const.MYSQL_HOST_S 
-    MYSQL_PORT = sae.const.MYSQL_PORT
->>>>>>> .r8
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -72,10 +23,11 @@ else:
 SECRET_KEY = 'j59odg2oe-&+m_58o)zs8mz(vnqw#7qtwoewp$z7jewza)y2-u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+                 'sinapp',
+                 ]
 
 # Application definition
 
@@ -124,15 +76,25 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+import sae.const
+MYSQL_DB = sae.const.MYSQL_DB 
+MYSQL_USER = sae.const.MYSQL_USER 
+MYSQL_PASS = sae.const.MYSQL_PASS 
+MYSQL_HOST_M = sae.const.MYSQL_HOST 
+MYSQL_HOST_S = sae.const.MYSQL_HOST_S 
+MYSQL_PORT = sae.const.MYSQL_PORT
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'library',    
-        'USER': 'root',   
-        'PASSWORD': '19940331', 
-        'HOST': '', 
-        'PORT': '3306', 
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': MYSQL_DB,
+    'USER': MYSQL_USER,
+    'PASSWORD': MYSQL_PASS,
+    'HOST': MYSQL_HOST_M,
+    'PORT': MYSQL_PORT,
     }
+}
 }
 
 

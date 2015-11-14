@@ -4,8 +4,10 @@ Created on Wed Nov 04 13:51:59 2015
 
 @author: XYRS
 """
-from django.shortcuts import  render_to_response
+from django.shortcuts import render_to_response
 from books.models import Author, Book
+import django
+#from django.http import HttpResponse
 
 #-------------search--------------------------
 def search(request):
@@ -29,7 +31,7 @@ def delete(request):
         ID = request.GET['id']
         book = Book.objects.get(id=ID)
         book.delete()
-        return render_to_response('search.html')
+        return render_to_response('display.html')
 
 #-------------display all the books--------------------------     
 def display(request):

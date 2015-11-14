@@ -8,9 +8,13 @@ https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 """
 
 import os
+import sys
 
-from django.core.wsgi import get_wsgi_application
-
+root = os.path.dirname(__file__)
+sys.path.insert(0, os.path.join(root, '..', 'site-packages'))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 
-application = get_wsgi_application()
+#from django.core.wsgi import get_wsgi_application
+#application = get_wsgi_application()
+import django.core.handlers.wsgi
+application = django.core.handlers.wsgi.WSGIHandler()
