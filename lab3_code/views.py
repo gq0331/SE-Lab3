@@ -31,7 +31,7 @@ def delete(request):
         ID = request.GET['id']
         book = Book.objects.get(id=ID)
         book.delete()
-        return render_to_response('display.html')
+        return render_to_response('search.html')
 
 #-------------display all the books--------------------------     
 def display(request):

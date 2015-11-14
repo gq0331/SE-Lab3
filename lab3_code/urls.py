@@ -23,6 +23,6 @@ urlpatterns = [
     url(r'^search/$', views.search),
     url(r'^results/$', views.search_results),
     url(r'^delete/$',views.delete),
-    url(r'^search_result/$',views.search_results),
+    #url(r'^search_result/$',views.search_results),
     url(r'^display/$', views.display),
 ]
